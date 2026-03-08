@@ -42,7 +42,7 @@ const PROJECTS: Project[] = [
     title: "SIOLGA",
     category: "Professional Project",
     year: "2025",
-    image: "images/SIOLGA.jpg",
+    image: "./images/SIOLGA.jpg",
     description: "Sistem Informasi Keolahragaan Kutai Timur. A centralized dashboard for managing athletes, coaches, and sports achievements.",
     longDescription: "SIOLGA was developed to modernize the sports management ecosystem in Kutai Timur. It serves as a comprehensive platform for the Department of Youth and Sports (Dispora) to track athletic progress, manage coaching certifications, and document historical achievements across various sports branches.",
     problem: "Dispora faced challenges in data fragmentation, where athlete records and achievement histories were stored in disparate spreadsheets, making it difficult to generate real-time reports or verify credentials.",
