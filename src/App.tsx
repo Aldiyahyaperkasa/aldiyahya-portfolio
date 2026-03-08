@@ -357,15 +357,21 @@ const ProjectCarousel = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-ink z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50 z-10" />
           <motion.img
             src={PROJECTS[currentIndex].image}
             alt={PROJECTS[currentIndex].title}
-            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+            className={cn(
+              "w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000",
+              PROJECTS[currentIndex].title === "SIOLGA" && "max-lg:object-right"
+            )}
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5 }}
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=1600";
+            }}
           />
         </motion.div>
       </AnimatePresence>
