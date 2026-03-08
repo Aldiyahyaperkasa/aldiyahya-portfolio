@@ -180,7 +180,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           className="inline-block text-xs font-bold tracking-[0.5em] uppercase text-accent mb-6"
         >
-          Informatics Engineer & Web Developer
+          Informatics Engineer, Web Developer & System Analyst
         </motion.span>
         <motion.h1 
           initial={{ opacity: 0, scale: 0.9 }}
