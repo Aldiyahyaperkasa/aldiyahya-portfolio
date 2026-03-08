@@ -10,6 +10,7 @@ import {
   Menu,
   X,
   Code2,
+  GitBranch,
   Database,
   Layout,
   Terminal,
@@ -30,6 +31,8 @@ interface Project {
   solution: string;
   year: string;
   tags: string[];
+  liveUrl?: string;
+  codeUrl?: string;
 }
 
 // --- Data from CV ---
@@ -39,12 +42,14 @@ const PROJECTS: Project[] = [
     title: "SIOLGA",
     category: "Professional Project",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=1600",
+    image: "public/images/SIOLGA.jpg",
     description: "Sistem Informasi Keolahragaan Kutai Timur. A centralized dashboard for managing athletes, coaches, and sports achievements.",
     longDescription: "SIOLGA was developed to modernize the sports management ecosystem in Kutai Timur. It serves as a comprehensive platform for the Department of Youth and Sports (Dispora) to track athletic progress, manage coaching certifications, and document historical achievements across various sports branches.",
     problem: "Dispora faced challenges in data fragmentation, where athlete records and achievement histories were stored in disparate spreadsheets, making it difficult to generate real-time reports or verify credentials.",
     solution: "I designed a centralized MySQL database and a responsive web dashboard that allows for real-time data entry and monitoring. The system includes role-based access control for administrators and sports branch representatives.",
-    tags: ["Web Dev", "Database", "Hosting"]
+    tags: ["Web Dev", "Database", "Hosting"],
+    codeUrl: "https://github.com/Aldiyahyaperkasa/si-olga"
+    // liveUrl: "https://siolga-dispora.kutaitimurkab.go.id"
   },
   {
     id: 2,
@@ -60,7 +65,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: 3,
-    title: "SANGATTA FESTIVAL",
+    title: "SANGATTA FESTIVAL RUN",
     category: "Professional Project",
     year: "2025",
     image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=1600",
@@ -85,10 +90,11 @@ const PROJECTS: Project[] = [
 ];
 
 const SKILLS = [
+  { name: "System Analysis", icon: <GitBranch className="w-5 h-5" />, items: ["Context Diagram", "Data Flow Diagram (DFD)", "Flow of Document", "Entity Relationship Diagram (ERD)", "System Design"] },
   { name: "Web Development", icon: <Layout className="w-5 h-5" />, items: ["HTML", "CSS", "Bootstrap", "Tailwind", "JavaScript", "PHP"] },
-  { name: "Programming", icon: <Terminal className="w-5 h-5" />, items: ["Java", "C++", "Python (Data Science)"] },
+  // { name: "Programming", icon: <Terminal className="w-5 h-5" />, items: ["JavaScript", "PHP", "C++", "Java"] },
   { name: "Database", icon: <Database className="w-5 h-5" />, items: ["MySQL", "ERD Design", "System Analysis"] },
-  { name: "Tools & Others", icon: <Code2 className="w-5 h-5" />, items: ["CPanel", "Alibaba Cloud", "Git", "UI Design"] },
+  { name: "Tools & Others", icon: <Code2 className="w-5 h-5" />, items: ["CPanel", "Microsoft Office", "Git", "UI Design"] },
 ];
 
 const EXPERIENCE = [
@@ -298,12 +304,31 @@ const ProjectDetailOverlay = ({ project, onClose }: { project: Project; onClose:
                 </div>
 
                 <div className="pt-8 border-t border-white/10 flex gap-6">
-                  <button className="flex-1 py-4 bg-accent text-ink rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform">
-                    Live Preview
-                  </button>
-                  <button className="flex-1 py-4 glass rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors">
-                    View Code
-                  </button>
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 py-4 bg-accent text-ink rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform text-center"
+                    >
+                      Live Preview
+                    </a>
+                  )}
+                  {project.codeUrl && (
+                    <a 
+                      href={project.codeUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 py-4 glass rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors text-center"
+                    >
+                      View Code
+                    </a>
+                  )}
+                  {!project.liveUrl && !project.codeUrl && (
+                    <div className="flex-1 py-4 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-paper/40 text-center italic">
+                      Project details are internal/private
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -332,7 +357,7 @@ const ProjectCarousel = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink z-10" />
           <motion.img
             src={PROJECTS[currentIndex].image}
             alt={PROJECTS[currentIndex].title}
