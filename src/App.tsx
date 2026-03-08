@@ -118,7 +118,7 @@ const Navbar = () => {
         animate={{ opacity: 1, x: 0 }}
         className="text-2xl font-display tracking-tighter"
       >
-        ALDI.YP
+        Aldi Yahya Perkasa
       </motion.div>
       
       <div className="hidden md:flex gap-8 text-xs font-semibold tracking-widest uppercase">
@@ -500,7 +500,7 @@ const About = () => {
             </h2>
             <div className="flex gap-4 mt-12">
               <a 
-                href="https://drive.google.com/drive/u/0/folders/1SI410obemT7lTtOjZqF3Hm7wdu5Vu4i1" 
+                href="https://drive.google.com/file/d/1cWK-_8vTMYMhYazkl_R8fzcpEdL616x5/view?usp=sharings" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-ink text-paper rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-3 hover:bg-accent transition-colors"
