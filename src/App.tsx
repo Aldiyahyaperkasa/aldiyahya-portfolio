@@ -31,6 +31,7 @@ interface Project {
   solution: string;
   year: string;
   tags: string[];
+  technologies: string[];
   liveUrl?: string;
   codeUrl?: string;
 }
@@ -47,8 +48,9 @@ const PROJECTS: Project[] = [
     longDescription: "SIOLGA was developed to modernize the sports management ecosystem in Kutai Timur. It serves as a comprehensive platform for the Department of Youth and Sports (Dispora) to track athletic progress, manage coaching certifications, and document historical achievements across various sports branches.",
     problem: "Dispora faced challenges in data fragmentation, where athlete records and achievement histories were stored in disparate spreadsheets, making it difficult to generate real-time reports or verify credentials.",
     solution: "I designed a centralized MySQL database and a responsive web dashboard that allows for real-time data entry and monitoring. The system includes role-based access control for administrators and sports branch representatives.",
-    tags: ["Web Dev", "Database", "Hosting"],
-    codeUrl: "https://github.com/Aldiyahyaperkasa/si-olga"
+    tags: ["Web App", "Goverment System", "Dashboard Monitoring", "Role Management", "News Managament"],
+    technologies: ["Role-Based Access Control", "API Text Editor", "PHP", "CodeIgniter", "MySQL", "JavaScipt", "Tailwind"],
+    codeUrl: "https://github.com/Aldiyahyaperkasa/si-olga",
     // liveUrl: "https://siolga-dispora.kutaitimurkab.go.id"
   },
   {
@@ -61,7 +63,8 @@ const PROJECTS: Project[] = [
     longDescription: "Kudungga Run Festival is a major community event requiring a robust registration pipeline. The system handles thousands of participants, ensuring each entry is unique and verified through a secure payment gateway and QR code generation.",
     problem: "Manual registration and payment verification were causing long queues and potential for fraudulent entries during previous events.",
     solution: "Implemented an automated registration system with QR code generation for each participant. Integrated a payment proof upload and admin validation workflow to streamline the check-in process on the day of the event.",
-    tags: ["Web Dev", "QR Integration", "Payment"]
+    tags: ["Event Registration", "QR Integration", "Payment", "Participant Management", "Email Integration"],
+    technologies: ["QR Code Generator and Scanner", "GD Library", "SMTP/PHP Mailer", "PHP", "CodeIgniter", "MySQL", "JavaScipt", "Bootstrap"],
   },
   {
     id: 3,
@@ -73,7 +76,8 @@ const PROJECTS: Project[] = [
     longDescription: "A specialized registration platform for the Sangatta Festival Run, focusing on category-based quota management and secure data handling for participants.",
     problem: "The event had strict quotas for different age and distance categories, which were difficult to manage manually, leading to overbooking.",
     solution: "Developed a real-time quota tracking system that automatically closes registration for specific categories once the limit is reached. Included a robust admin panel for managing participant data and verifying payments.",
-    tags: ["Web Dev", "Admin Dashboard", "Logic"]
+    tags: ["Web App", "Event Registration", "QR Integration", "Email Integration"],
+    technologies: ["QR Code Generator and Scanner", "SMTP/PHP Mailer", "PHP", "CodeIgniter", "MySQL", "JavaScript", "Bootstrap"],
   },
   {
     id: 4,
@@ -85,7 +89,8 @@ const PROJECTS: Project[] = [
     longDescription: "This academic project focused on creating a streamlined workflow for public building rentals. It covers the entire process from initial inquiry to final approval and scheduling.",
     problem: "The existing manual process for building rentals was prone to double-booking and lacked transparency for the public regarding availability.",
     solution: "Designed a system with a public-facing availability calendar and an internal approval workflow. Used ERD modeling to ensure a robust database structure that prevents scheduling conflicts.",
-    tags: ["MySQL", "System Analysis", "UI Design"]
+    tags: ["Web App", "Booking Analysis", "Approval Workflow"],
+    technologies: ["PHP", "Codeigniter", "JavaScript", "MySQL", "Boostrap"]
   }
 ];
 
@@ -218,6 +223,7 @@ const Hero = () => {
   );
 };
 
+
 const ProjectDetailOverlay = ({ project, onClose }: { project: Project; onClose: () => void }) => {
   return (
     <motion.div
@@ -295,7 +301,7 @@ const ProjectDetailOverlay = ({ project, onClose }: { project: Project; onClose:
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest opacity-40 mb-4">Technologies</h4>
                   <div className="flex flex-wrap gap-3">
-                    {project.tags.map(tag => (
+                    {project.technologies.map(tag => (
                       <span key={tag} className="px-4 py-2 text-xs uppercase tracking-widest border border-white/10 rounded-full bg-white/5">
                         {tag}
                       </span>
@@ -357,7 +363,7 @@ const ProjectCarousel = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink to-ink/50 z-10" />
           <motion.img
             src={PROJECTS[currentIndex].image}
             alt={PROJECTS[currentIndex].title}
@@ -531,7 +537,7 @@ const About = () => {
             </h2>
             <div className="flex gap-4 mt-12">
               <a 
-                href="https://drive.google.com/file/d/1cWK-_8vTMYMhYazkl_R8fzcpEdL616x5/view?usp=sharings" 
+                href="https://drive.google.com/file/d/1lGImZJi6aYgsbG4piBDrkuXPMzq5ukyt/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-ink text-paper rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-3 hover:bg-accent transition-colors"
