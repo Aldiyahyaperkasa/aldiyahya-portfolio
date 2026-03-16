@@ -50,7 +50,7 @@ const PROJECTS: Project[] = [
     solution: "I designed a centralized MySQL database and a responsive web dashboard that allows for real-time data entry and monitoring. The system includes role-based access control for administrators and sports branch representatives.",
     tags: ["Web App", "Goverment System", "Dashboard Monitoring", "Role Management", "News Managament"],
     technologies: ["Role-Based Access Control", "API Text Editor", "PHP", "CodeIgniter", "MySQL", "JavaScipt", "Tailwind"],
-    codeUrl: "https://github.com/Aldiyahyaperkasa/si-olga",
+    // codeUrl: "https://github.com/Aldiyahyaperkasa/si-olga",
     // liveUrl: "https://siolga-dispora.kutaitimurkab.go.id"
   },
   {
@@ -78,6 +78,7 @@ const PROJECTS: Project[] = [
     solution: "Developed a real-time quota tracking system that automatically closes registration for specific categories once the limit is reached. Included a robust admin panel for managing participant data and verifying payments.",
     tags: ["Web App", "Event Registration", "QR Integration", "Email Integration"],
     technologies: ["QR Code Generator and Scanner", "SMTP/PHP Mailer", "PHP", "CodeIgniter", "MySQL", "JavaScript", "Bootstrap"],
+    // codeUrl: "https://github.com/Aldiyahyaperkasa/si-olga",
   },
   {
     id: 4,
@@ -104,7 +105,8 @@ const PROJECTS: Project[] = [
     problem: "Managing boat availability and communicating status updates manually via chat was overwhelming for admins and prone to miscommunication.",
     solution: "Built a centralized booking system with WhatsApp API integration for automated alerts (booking details, DP reminders, approval/rejection). Included a secure payment proof upload and verification workflow.",
     tags: ["Booking System", "WA API Integration", "Tourism Tech", "Notification System"],
-    technologies: ["WhatsApp API (Fonnte)", "Payment Verification", "PHP", "CodeIgniter", "MySQL", "JavaScript", "Bootstrap"],
+    technologies: ["WhatsApp API (Fonnte)", "Payment Verification", "PHP", "CodeIgniter", "MySQL", "JavaScript", "Tailwind"],
+    // codeUrl: "https://github.com/Aldiyahyaperkasa/pemesanan-kapal",
   },  
   {
     id: 6,
@@ -212,7 +214,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           className="inline-block text-xs font-bold tracking-[0.5em] uppercase text-accent mb-6"
         >
-          Informatics Engineer, Web Developer & System Analyst
+          Software Engineer & System Analyst
         </motion.span>
         <motion.h1 
           initial={{ opacity: 0, scale: 0.9 }}
@@ -514,7 +516,12 @@ const Skills = () => {
   return (
     <section id="skills" className="py-32 px-6 bg-ink">
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8"
+        >
           <div>
             <span className="text-xs font-bold tracking-[0.5em] uppercase text-accent mb-4 block">Expertise</span>
             <h2 className="text-7xl font-display tracking-tighter uppercase">Capabilities</h2>
@@ -522,29 +529,33 @@ const Skills = () => {
           <p className="max-w-md text-paper/50 font-light">
             Specialized in building robust web systems and managing IT infrastructure with a focus on efficiency and user experience.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {SKILLS.map((skill, idx) => (
             <motion.div 
               key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-ink p-10 hover:bg-white/[0.02] transition-colors group"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              className={cn(
+                "bg-white/[0.03] border border-white/10 p-10 hover:bg-white/[0.05] transition-all duration-500 group rounded-3xl",
+                idx === 0 && "lg:col-span-2",
+                idx === 3 && "lg:col-span-2"
+              )}
             >
-              <div className="text-accent mb-6 group-hover:scale-110 transition-transform duration-500">
+              <div className="text-accent mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
                 {skill.icon}
               </div>
-              <h3 className="text-xl font-display uppercase mb-6">{skill.name}</h3>
-              <ul className="space-y-3">
+              <h3 className="text-2xl font-display uppercase mb-6">{skill.name}</h3>
+              <div className="flex flex-wrap gap-2">
                 {skill.items.map(item => (
-                  <li key={item} className="text-sm text-paper/60 font-light flex items-center gap-2">
-                    <div className="w-1 h-1 bg-accent rounded-full" />
+                  <span key={item} className="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/5 border border-white/10 rounded-full text-paper/60 group-hover:text-paper group-hover:border-accent/30 transition-colors">
                     {item}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -552,6 +563,7 @@ const Skills = () => {
     </section>
   );
 };
+
 
 const About = () => {
   return (
