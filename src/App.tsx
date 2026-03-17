@@ -625,26 +625,26 @@ const Contact = () => {
       <div className="container mx-auto text-center">
         <span className="text-xs font-bold tracking-[0.5em] uppercase text-accent mb-8 block">Get in touch</span>
         
-        <div className="relative inline-block group">
-          <a href={`mailto:${email}`}>
+        <div className="relative inline-block w-full group overflow-hidden">
+          <a href={`mailto:${email}`} className="block w-full">
             <motion.h2 
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 50 }}
-              className="text-[10vw] font-display tracking-tighter uppercase mb-4 hover:text-accent transition-colors cursor-pointer"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-[8vw] font-display tracking-tighter uppercase mb-4 hover:text-accent transition-colors cursor-pointer break-all px-4"
             >
               {email}
             </motion.h2>
           </a>
           <button 
             onClick={copyToClipboard}
-            className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity text-accent font-bold"
+            className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity text-accent font-bold whitespace-nowrap"
           >
             {copied ? "Copied to clipboard!" : "Click to email or hover to copy"}
           </button>
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-12 border-t border-white/10 pt-16 mt-16">
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors flex items-center gap-2 text-xs uppercase tracking-widest">
               <Linkedin className="w-4 h-4" /> LinkedIn
             </a>
@@ -656,7 +656,7 @@ const Contact = () => {
             </a>
           </div>
           
-          <div className="text-right">
+          <div className="text-center md:text-right">
             <p className="text-xs font-bold tracking-widest uppercase opacity-40 mb-2">Location</p>
             <p className="text-xl font-display">BONTANG, INDONESIA</p>
           </div>
@@ -669,7 +669,6 @@ const Contact = () => {
     </footer>
   );
 };
-
 export default function App() {
   return (
     <main className="relative no-scrollbar">
