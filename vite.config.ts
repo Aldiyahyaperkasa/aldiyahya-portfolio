@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
   return {
-    base: '/',   // ⭐ ini yang penting
+    base: '/aldiyahya-portfolio/',   // ⭐ ini yang penting
 
     plugins: [react(), tailwindcss()],
 
