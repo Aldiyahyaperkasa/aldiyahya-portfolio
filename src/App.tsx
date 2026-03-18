@@ -576,7 +576,7 @@ const About = () => {
             </h2>
             <div className="flex gap-4 mt-12">
               <a 
-                href="https://drive.google.com/file/d/1lGImZJi6aYgsbG4piBDrkuXPMzq5ukyt/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1_4aPmtg4fzD4XxK4SrzTXdgr2PeLLzoe/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-ink text-paper rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-3 hover:bg-accent transition-colors"
